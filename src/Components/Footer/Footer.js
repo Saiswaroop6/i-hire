@@ -2,8 +2,8 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <div className="absolute bottom-0 w-full">
-      <footer class="bg-neutral-900 text-center text-white">
+    <div className="bottom-0 w-full">
+      <footer class="bg-[#0B1547] text-center text-white">
         <div class="container mx-[220px] pt-6">
           <div class="mb-6 flex justify-center">
             <a

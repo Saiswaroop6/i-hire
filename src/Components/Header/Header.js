@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon } from "@heroicons/react/24/outline";
+import {useNavigate } from "react-router";
 
 const navigation = [
   { name: "Skill Tests", href: "#", current: false },
@@ -13,52 +14,55 @@ function classNames(...classes) {
 }
 
 export default function Header() {
+  const Navigate = useNavigate();
   return (
-    <Disclosure as="nav" className=" bg-[#001f54]">
+    <Disclosure as="nav" className="bg-white shadow-lg">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-            <div className="relative flex h-16 items-center justify-between">
-              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex flex-shrink-0 items-center">
-                  <h1 className=" text-xl text-[#9BC4E2]">iHire</h1>
+          <div className="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div className="relative flex items-center justify-between h-20">
+              <div className="flex items-center justify-center flex-1 sm:items-stretch sm:justify-start">
+                <div className="flex items-center flex-shrink-0">
+                  <button className="text-3xl font-bold text-[#0B1547]" onClick={() => {Navigate("/") 
+        }}>iHire</button>
                 </div>
               </div>
               <div className="hidden sm:ml-6 sm:block">
                 <div className="flex space-x-4">
                   {navigation.map((item) => (
-                    <a
+                    <button
+                    type='button'
                       key={item.name}
                       href={item.href}
                       className={classNames(
                         item.current
                           ? "bg-gray-900 text-white"
-                          : "text-white hover:bg-white hover:text-[#001f54]",
-                        "rounded-md px-3 py-2 text-sm font-medium"
+                          : "text-[#0B1547] hover:bg-[#0B1547] hover:text-white font-semibold text-xl",
+                        "rounded-md px-3 py-2 font-medium"
                       )}
                       aria-current={item.current ? "page" : undefined}
                     >
                       {item.name}
-                    </a>
+                    </button>
                   ))}
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <button
                   type="button"
-                  className="group flex rounded-full p-1 hover:bg-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  className="flex p-1 rounded-full group hover:bg-[#0B1547] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                   <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6 text-white group-hover:text-[#001f54]" />
+                  <BellIcon className="h-7 w-7 text-[#0B1547] group-hover:text-white" />
                 </button>
 
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
                   <div>
-                    <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                    <Menu.Button className="flex text-sm bg-gray-800 rounded-full focus:outline-none focus:ring-2 focus:ring-[#0B1547]">
                       <span className="sr-only">Open user menu</span>
                       <img
-                        className="h-8 w-8 rounded-full"
+                        className="w-12 h-12 rounded-full "
                         src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                         alt=""
                       />
@@ -73,44 +77,44 @@ export default function Header() {
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95"
                   >
-                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <Menu.Items className="absolute right-0 z-10 w-48 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <button
+                            type='button'
                             className={classNames(
                               active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
+                              "block px-4 py-2 text-sm font-semibold text-[#0B1547]"
                             )}
                           >
                             Your Profile
-                          </a>
+                          </button>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <button
+                            type='button'
                             className={classNames(
                               active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
+                              "block px-4 py-2 text-sm font-semibold text-[#0B1547]"
                             )}
                           >
                             Settings
-                          </a>
+                          </button>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <button
+                            type='button'
                             className={classNames(
                               active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
+                              "block px-4 py-2 text-sm font-semibold text-[#0B1547]"
                             )}
                           >
                             Sign out
-                          </a>
+                          </button>
                         )}
                       </Menu.Item>
                     </Menu.Items>
@@ -121,7 +125,7 @@ export default function Header() {
           </div>
 
           <Disclosure.Panel className="sm:hidden">
-            <div className="space-y-1 px-2 pt-2 pb-3">
+            <div className="px-2 pt-2 pb-3 space-y-1">
               {navigation.map((item) => (
                 <Disclosure.Button
                   key={item.name}

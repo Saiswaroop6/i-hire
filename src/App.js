@@ -1,15 +1,17 @@
 
-import './App.css';
-import Header from './Components/Header/Header';
-import Footer from './Components/Header/Footer/Footer';
+
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomePage from "./Pages/HomePage/HomePage";
+import JobsList from './Pages/JobsList/JobsList';
 
 function App() {
   return (
-    <div className="App">
-      <Header/>
-      <Footer/>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/jobs" element={<JobsList />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
 export default App;
