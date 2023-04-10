@@ -15,7 +15,7 @@ export default function JobsList() {
   return (
     <div>
       <Header />
-      <div className="px-2 mx-auto mb-5 max-w-7xl sm:px-6 lg:px-8">
+      <div className="px-2 mx-auto mb-5 max-w-7xl sm:px-6 lg:px-6">
       <h1 className="text-xl mx-auto mt-10 font-semibold border-solid border-b-[1px] pb-3 mb-3">
         Job Feed
       </h1>

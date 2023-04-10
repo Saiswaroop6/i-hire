@@ -5,6 +5,6 @@ import Profile from '../../Components/Profile/Profile'
 
 export default function HomePage() {
   return (
-    <div className='h-full'><Header/><Profile/><Footer/></div>
+    <div><Header/><Profile/><Footer/></div>
   )
 }

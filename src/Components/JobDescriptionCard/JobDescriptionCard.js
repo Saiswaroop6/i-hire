@@ -2,7 +2,7 @@ import React from "react";
 
 export default function JobDescriptionCard({ job }) {
   return (
-    <div className="p-5 rounded-lg shadow-xl">
+    <div className="p-5 border border-solid rounded-lg shadow-lg">
       <div className="border-b-[1px] border-solid flex justify-between">
         <div>
           <h1 className="font-semibold text-[#004FC1] text-lg">Software Engineer</h1>
@@ -10,7 +10,7 @@ export default function JobDescriptionCard({ job }) {
         </div>
         <button
           type="button"
-          className=" bg-[#004FC1] text-white px-2 rounded-lg h-8"
+          className=" bg-[#004FC1] font-semibold text-white px-2 rounded-lg border border-white hover:border-[#004fc1] h-10 hover:bg-white hover:text-[#004fc1]"
         >
           Apply Now
         </button>
