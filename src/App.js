@@ -1,13 +1,15 @@
 
 import './App.css';
 import Header from './Components/Header/Header';
-import Footer from './Components/Header/Footer/Footer';
+import Footer from './Components/Footer/Footer';
+import Profile from './Components/Profile/Profile';
 
 function App() {
   return (
     <div className="App">
       <Header/>
-      <Footer/>
+      <Profile/>
+      {/* <Footer/> */}
     </div>
   );
 }
