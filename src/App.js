@@ -1,17 +1,15 @@
-
-import './App.css';
-import Header from './Components/Header/Header';
-import Footer from './Components/Footer/Footer';
-import Profile from './Components/Profile/Profile';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomePage from "./Pages/HomePage/HomePage";
+import JobsList from './Pages/JobsList/JobsList';
 
 function App() {
   return (
-    <div className="App">
-      <Header/>
-      <Profile/>
-      {/* <Footer/> */}
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/jobs" element={<JobsList />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
 export default App;
