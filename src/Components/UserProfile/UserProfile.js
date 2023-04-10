@@ -51,7 +51,7 @@ export default function UserProfile() {
 
   }
   return (
-    <div className="flex flex-col p-5 w-[300px] gap-y-5 overscroll-none">
+    <div className="flex flex-col p-5 w-[300px] gap-y-5">
       <div className="shadow-lg rounded-xl">
         <div className="p-3 bg-[#004FC1] rounded-xl">
           <div className="flex flex-row items-center pb-4 border-b-2 border-white">
