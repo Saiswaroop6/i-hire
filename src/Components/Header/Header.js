@@ -1,7 +1,11 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon } from "@heroicons/react/24/outline";
-import {useNavigate } from "react-router";
+import { useNavigate } from "react-router";
+import MenuIcon from '@mui/icons-material/Menu';
+import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import UserProfile from "../UserProfile/UserProfile";
+
 
 const navigation = [
   { name: "Skill Tests", href: "#", current: false },
@@ -15,23 +19,33 @@ function classNames(...classes) {
 
 export default function Header() {
   const Navigate = useNavigate();
+  const [showProfile,setShowProfile]=useState(false)
   return (
     <Disclosure as="nav" className="bg-white shadow-lg">
       {({ open }) => (
         <>
-          <div className="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl">
             <div className="relative flex items-center justify-between h-20">
               <div className="flex items-center justify-center flex-1 sm:items-stretch sm:justify-start">
                 <div className="flex items-center flex-shrink-0">
-                  <button className="text-3xl font-bold text-[#0B1547]" onClick={() => {Navigate("/") 
-        }}>iHire</button>
+                  <MenuIcon fontSize="large" className="hover:text-white hover:bg-[#0B1547] rounded-md P-1 cursor-pointer" onClick={()=>{setShowProfile(true)}}/>
+                  <SwipeableDrawer open={showProfile} anchor='left' onClose={()=>{setShowProfile(false)}}
+                  ><UserProfile/></SwipeableDrawer>
+                  <button
+                    className="text-3xl font-bold text-[#0B1547] ml-3"
+                    onClick={() => {
+                      Navigate("/");
+                    }}
+                  >
+                    iHire
+                  </button>
                 </div>
               </div>
               <div className="hidden sm:ml-6 sm:block">
                 <div className="flex space-x-4">
                   {navigation.map((item) => (
                     <button
-                    type='button'
+                      type="button"
                       key={item.name}
                       href={item.href}
                       className={classNames(
@@ -81,7 +95,7 @@ export default function Header() {
                       <Menu.Item>
                         {({ active }) => (
                           <button
-                            type='button'
+                            type="button"
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm font-semibold text-[#0B1547]"
@@ -94,7 +108,7 @@ export default function Header() {
                       <Menu.Item>
                         {({ active }) => (
                           <button
-                            type='button'
+                            type="button"
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm font-semibold text-[#0B1547]"
@@ -107,7 +121,7 @@ export default function Header() {
                       <Menu.Item>
                         {({ active }) => (
                           <button
-                            type='button'
+                            type="button"
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm font-semibold text-[#0B1547]"
