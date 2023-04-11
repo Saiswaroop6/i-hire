@@ -9,7 +9,7 @@ import iHire from '../../Assets/Images/iHire-bg.jpg';
 
 export default function HomePage() {
   return (
-    <div className="h-full">
+    <div>
       <Header />
       <Profile />
       <ReviewSlider />
