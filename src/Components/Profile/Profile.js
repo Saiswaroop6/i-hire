@@ -9,10 +9,12 @@ import BadgeOutlinedIcon from "@mui/icons-material/BadgeOutlined";
 import EmojiEventsOutlinedIcon from "@mui/icons-material/EmojiEventsOutlined";
 import PictureAsPdfOutlinedIcon from "@mui/icons-material/PictureAsPdfOutlined";
 import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
-import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
-
+import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
+import ProfileTracker from "../ProfileTracker/ProfileTracker";
+import { useState } from "react";
 
 export default function Profile() {
+  const [showTracker, setShowTracker] = useState(false);
   const navigate = useNavigate();
   return (
     <div className="flex flex-col gap-6 py-6 mx-auto max-w-7xl">
@@ -26,14 +28,14 @@ export default function Profile() {
           />
         </div>
         <div className="flex justify-between w-full">
-          <div className="p-4 flex flex-col justify-between text-base font-bold text-[#0B1547] leading-6 text-left ">
+          <div className="p-4 flex flex-col justify-between text-base font-bold text-[#004FC1] leading-6 text-left ">
             <span>User Name</span>
             <span>Fresher</span>
             <span>9876543210</span>
             <span>username@gmail.com</span>
           </div>
           <div className="flex flex-col items-end justify-between p-4">
-            <EditOutlinedIcon className="text-[#004FC1] cursor-pointer"/>
+            <EditOutlinedIcon className="text-[#004FC1] cursor-pointer" />
             <div className="flex gap-x-4">
               <button
                 type="button"
@@ -56,17 +58,29 @@ export default function Profile() {
         </div>
       </div>
       {/* row-2 */}
-      <div className="flex flex-col h-40 w-full bg-[#004FC1] border rounded-xl items-start p-4">
-        <span className="text-base font-bold text-white">Hello UserName,</span>
-        <span className="text-base font-bold text-white">
-          Make your profile more trustworthy in 4 easy steps
-          <br />
-          Also, as a bonus you will be creadited 1000 Tokens.
-        </span>
-        <button className="h-10 bg-white px-3 rounded-lg text-base font-bold mt-4 text-[#004FC1] hover:border hover:border-white hover:text-white hover:bg-[#004FC1]">
-          Get started
-        </button>
-      </div>
+      {!showTracker ? (
+        <div className="flex flex-col h-40 w-full  bg-gradient-to-b from-[#004fc1] to-[#91bfff] border rounded-xl items-start p-4">
+          <span className="text-base font-bold text-white">
+            Hello UserName,
+          </span>
+          <span className="text-base font-bold text-white">
+            Make your profile more trustworthy in 4 easy steps
+            <br />
+            Also, as a bonus you will be creadited 1000 Tokens.
+          </span>
+          <button
+            type="button"
+            onClick={() => {
+              setShowTracker(true);
+            }}
+            className="h-10 bg-white px-3 rounded-lg text-base font-bold mt-4 text-[#004FC1] hover:border hover:border-white hover:text-white hover:bg-[#004FC1]"
+          >
+            Get started
+          </button>
+        </div>
+      ) : (
+        <ProfileTracker />
+      )}
       {/* row-3 */}
       <div className="flex w-full gap-6">
         <div className="flex flex-col w-3/4 gap-6 ">
