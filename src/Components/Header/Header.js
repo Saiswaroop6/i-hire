@@ -5,6 +5,7 @@ import { useNavigate } from "react-router";
 import MenuIcon from '@mui/icons-material/Menu';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import UserProfile from "../UserProfile/UserProfile";
+import logoBlue from "../../Assets/Images/logo-blue.png";
 
 
 const navigation = [
@@ -37,7 +38,7 @@ export default function Header() {
                       Navigate("/");
                     }}
                   >
-                    iHire
+                   <img src={logoBlue} className='h-10' alt='logo'/>
                   </button>
                 </div>
               </div>
