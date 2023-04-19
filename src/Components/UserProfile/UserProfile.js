@@ -1,14 +1,12 @@
 import React, { useState } from "react";
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { useNavigate } from "react-router";
 
-
-
 export default function UserProfile() {
-    const [showSkills,setShowSkills]=useState(false);
-    const [showCareerTips,setShowCareerTips]=useState(false);
-    const [showCategories,setShowCategories]=useState(false);
-    const navigate=useNavigate();
+  const [showSkills, setShowSkills] = useState(false);
+  const [showCareerTips, setShowCareerTips] = useState(false);
+  const [showCategories, setShowCategories] = useState(false);
+  const navigate = useNavigate();
   const navigationTabs = [
     { name: "Recommended Jobs", id: 1 },
     { name: "My Profile", id: 2 },
@@ -26,31 +24,28 @@ export default function UserProfile() {
     { skillName: "Data Analyst", id: 4 },
   ];
 
-  const careerTips=[
-    {tipType:'Job Search Strategy',id:1},
-    {tipType:'Resume & Cover Letter',id:2},
-    {tipType:'Interview Tips',id:3},
-    {tipType:'Career Management',id:4},
-    {tipType:'Salary Negotiations',id:5}
-  ]
+  const careerTips = [
+    { tipType: "Job Search Strategy", id: 1 },
+    { tipType: "Resume & Cover Letter", id: 2 },
+    { tipType: "Interview Tips", id: 3 },
+    { tipType: "Career Management", id: 4 },
+    { tipType: "Salary Negotiations", id: 5 },
+  ];
 
-  const JobCategories=[
-    {category:'Jobs by Location',id:1},
-    {category:'Jobs by Skills',id:2},
-    {category:'Jobs by Title',id:3},
-    {category:'Jobs by Industry',id:4}
+  const JobCategories = [
+    { category: "Jobs by Location", id: 1 },
+    { category: "Jobs by Skills", id: 2 },
+    { category: "Jobs by Title", id: 3 },
+    { category: "Jobs by Industry", id: 4 },
+  ];
 
-  ]
-
-  const pageNavigation=(id)=>{
-    if(id===1){
-      navigate('/jobs');
+  const pageNavigation = (id) => {
+    if (id === 1) {
+      navigate("/jobs");
+    } else if (id === 2) {
+      navigate("/home");
     }
-    else if(id===2){
-      navigate('/')
-    }
-
-  }
+  };
   return (
     <div className="flex flex-col p-5 w-[300px] gap-y-5">
       <div className="shadow-lg rounded-xl">
@@ -68,9 +63,7 @@ export default function UserProfile() {
               <button
                 className="text-left text-white hover:underline"
                 type="button"
-                onClick={()=>
-                pageNavigation(each?.id)
-              }
+                onClick={() => pageNavigation(each?.id)}
               >
                 {each?.name}
               </button>
@@ -78,48 +71,85 @@ export default function UserProfile() {
           </div>
         </div>
       </div>
-      <div className='bg-[#004fc1] bg-opacity-20 rounded-xl p-2'>
-      <button className="flex justify-between w-full" type='button' onClick={()=>{setShowSkills(!showSkills)}}>
-        <p className="text-[#004fc1] font-semibold">Skill Tests</p>
-        <KeyboardArrowDownIcon className={`text-[#004fc1] ${showSkills&&'rotate-180'}` } />
-      </button>
-      {showSkills&&<div className="flex flex-col pl-3 rounded-lg gap-y-2">
-        {skills?.map((each) => (
-          <button type='button' className="flex justify-between p-2 pr-0">
-            <p className="text-[#004fc1] font-semibold">{each?.skillName}</p>
-            <KeyboardArrowDownIcon className="text-[#004fc1]" />
-          </button>
-        ))}
-      </div>}
+      <div className="bg-[#004fc1] bg-opacity-20 rounded-xl p-2">
+        <button
+          className="flex justify-between w-full"
+          type="button"
+          onClick={() => {
+            setShowSkills(!showSkills);
+          }}
+        >
+          <p className="text-[#004fc1] font-semibold">Skill Tests</p>
+          <KeyboardArrowDownIcon
+            className={`text-[#004fc1] ${showSkills && "rotate-180"}`}
+          />
+        </button>
+        {showSkills && (
+          <div className="flex flex-col pl-3 rounded-lg gap-y-2">
+            {skills?.map((each) => (
+              <button type="button" className="flex justify-between p-2 pr-0">
+                <p className="text-[#004fc1] font-semibold">
+                  {each?.skillName}
+                </p>
+                <KeyboardArrowDownIcon className="text-[#004fc1]" />
+              </button>
+            ))}
+          </div>
+        )}
       </div>
-      <button className="flex text-[#004fc1] font-semibold bg-[#004fc1] bg-opacity-20 rounded-xl p-2" type='button'>Resume Builder</button>
-      <div className='bg-[#004fc1] bg-opacity-20 rounded-xl p-2'>
-      <button className="flex justify-between w-full" type='button' onClick={()=>{setShowCategories(!showCategories)}}>
-        <p className="text-[#004fc1] font-semibold">Job Categories</p>
-        <KeyboardArrowDownIcon className={`text-[#004fc1] ${showCategories&&'rotate-180'}` } />
+      <button
+        className="flex text-[#004fc1] font-semibold bg-[#004fc1] bg-opacity-20 rounded-xl p-2"
+        type="button"
+      >
+        Resume Builder
       </button>
-      {showCategories&&<div className="flex flex-col pl-3 rounded-lg gap-y-2">
-        {JobCategories?.map((each) => (
-          <button type='button' className="flex justify-between p-2 pr-0">
-            <p className="text-[#004fc1] font-semibold">{each?.category}</p>
-            <KeyboardArrowDownIcon className="text-[#004fc1]" />
-          </button>
-        ))}
-      </div>}
+      <div className="bg-[#004fc1] bg-opacity-20 rounded-xl p-2">
+        <button
+          className="flex justify-between w-full"
+          type="button"
+          onClick={() => {
+            setShowCategories(!showCategories);
+          }}
+        >
+          <p className="text-[#004fc1] font-semibold">Job Categories</p>
+          <KeyboardArrowDownIcon
+            className={`text-[#004fc1] ${showCategories && "rotate-180"}`}
+          />
+        </button>
+        {showCategories && (
+          <div className="flex flex-col pl-3 rounded-lg gap-y-2">
+            {JobCategories?.map((each) => (
+              <button type="button" className="flex justify-between p-2 pr-0">
+                <p className="text-[#004fc1] font-semibold">{each?.category}</p>
+                <KeyboardArrowDownIcon className="text-[#004fc1]" />
+              </button>
+            ))}
+          </div>
+        )}
       </div>
-      <div className='bg-[#004fc1] bg-opacity-20 rounded-xl p-2'>
-      <button className="flex justify-between w-full" type='button' onClick={()=>{setShowCareerTips(!showCareerTips)}}>
-        <p className="text-[#004fc1] font-semibold">Career Tips</p>
-        <KeyboardArrowDownIcon className={`text-[#004fc1] ${showCareerTips&&'rotate-180'}` } />
-      </button>
-      {showCareerTips&&<div className="flex flex-col pl-3 rounded-lg gap-y-2">
-        {careerTips?.map((each) => (
-          <button type='button' className="flex justify-between p-2 pr-0">
-            <p className="text-[#004fc1] font-semibold">{each?.tipType}</p>
-            <KeyboardArrowDownIcon className="text-[#004fc1]" />
-          </button>
-        ))}
-      </div>}
+      <div className="bg-[#004fc1] bg-opacity-20 rounded-xl p-2">
+        <button
+          className="flex justify-between w-full"
+          type="button"
+          onClick={() => {
+            setShowCareerTips(!showCareerTips);
+          }}
+        >
+          <p className="text-[#004fc1] font-semibold">Career Tips</p>
+          <KeyboardArrowDownIcon
+            className={`text-[#004fc1] ${showCareerTips && "rotate-180"}`}
+          />
+        </button>
+        {showCareerTips && (
+          <div className="flex flex-col pl-3 rounded-lg gap-y-2">
+            {careerTips?.map((each) => (
+              <button type="button" className="flex justify-between p-2 pr-0">
+                <p className="text-[#004fc1] font-semibold">{each?.tipType}</p>
+                <KeyboardArrowDownIcon className="text-[#004fc1]" />
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
