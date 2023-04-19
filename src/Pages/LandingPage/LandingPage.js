@@ -14,8 +14,11 @@ import ManageHistoryIcon from "@mui/icons-material/ManageHistory";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import "./LandingPage.css";
 import ReviewSlider from "../../Components/ReviewSlider/ReviewSlider";
+import { useNavigate } from "react-router";
 
 export default function LandingPage() {
+  const navigate = useNavigate();
+
   return (
     <div className="h-full">
       {/* section-1 */}
@@ -39,6 +42,9 @@ export default function LandingPage() {
                 Transparency of Blockchain
               </div>
               <button
+                onClick={() => {
+                  navigate("/home");
+                }}
                 type="button"
                 className=" bg-white p-3 border rounded-2xl text-3xl font-bold mt-4 text-[#0B1547] border-white hover:text-white hover:bg-[#0B1547]"
               >
@@ -163,9 +169,9 @@ export default function LandingPage() {
           Why iHire ?
         </div>
         <div className="flex justify-center gap-[50px]">
-          <div className=" flex flex-col items-center h-[350px] w-[380px] border-4 border-[#3B0CDC] rounded-2xl p-8">
+          <div className=" flex flex-col items-center h-[350px] w-[380px] border-4 border-[#004fc1] rounded-2xl p-8">
             <HandshakeIcon sx={"height:40px; width:40px; "} />
-            <span className="text-2xl mt-6 underline font-semibold text-[#3B0CDC]">
+            <span className="text-2xl mt-6 underline font-semibold text-[#004fc1]">
               Trust and Transparency
             </span>
             <div className="mt-6 text-center">
@@ -174,9 +180,9 @@ export default function LandingPage() {
               providing increased trust and transparency in the job market.
             </div>
           </div>
-          <div className=" flex flex-col items-center h-[350px] w-[380px] border-4 border-[#3B0CDC] rounded-2xl p-8">
+          <div className=" flex flex-col items-center h-[350px] w-[380px] border-4 border-[#004fc1] rounded-2xl p-8">
             <SecurityIcon sx={"height:40px; width:40px; "} />
-            <span className="text-2xl mt-6 underline font-semibold text-[#3B0CDC]">
+            <span className="text-2xl mt-6 underline font-semibold text-[#004fc1]">
               Privacy and Security
             </span>
             <div className="mt-6 text-center">
@@ -185,9 +191,9 @@ export default function LandingPage() {
               and protection of job seekers' personal information.
             </div>
           </div>
-          <div className=" flex flex-col items-center h-[350px] w-[380px] border-4 border-[#3B0CDC] rounded-2xl p-8">
+          <div className=" flex flex-col items-center h-[350px] w-[380px] border-4 border-[#004fc1] rounded-2xl p-8">
             <AccessTimeFilledIcon sx={"height:40px; width:40px; "} />
-            <span className="text-2xl mt-6 underline font-semibold text-[#3B0CDC]">
+            <span className="text-2xl mt-6 underline font-semibold text-[#004fc1]">
               Time and Cost Savings
             </span>
             <div className="mt-6 text-center">
@@ -199,9 +205,9 @@ export default function LandingPage() {
           </div>
         </div>
         <div className="flex justify-center gap-[50px] mt-10">
-          <div className=" flex flex-col items-center h-[350px] w-[380px] border-4 border-[#3B0CDC] rounded-2xl p-8">
+          <div className=" flex flex-col items-center h-[350px] w-[380px] border-4 border-[#004fc1] rounded-2xl p-8">
             <ManageHistoryIcon sx={"height:40px; width:40px; "} />
-            <span className="text-2xl mt-6 underline font-semibold text-[#3B0CDC]">
+            <span className="text-2xl mt-6 underline font-semibold text-[#004fc1]">
               Efficiency and Accuracy
             </span>
             <div className="mt-6 text-center">
@@ -211,9 +217,9 @@ export default function LandingPage() {
               efficiency and accuracy in the job matching process.
             </div>
           </div>
-          <div className=" flex flex-col items-center h-[350px] w-[380px] border-4 border-[#3B0CDC] rounded-2xl p-8">
+          <div className=" flex flex-col items-center h-[350px] w-[380px] border-4 border-[#004fc1] rounded-2xl p-8">
             <VerifiedUserIcon sx={"height:40px; width:40px; "} />
-            <span className="text-2xl mt-6 underline font-semibold text-[#3B0CDC]">
+            <span className="text-2xl mt-6 underline font-semibold text-[#004fc1]">
               Authenticity of Job
             </span>
             <div className="mt-6 text-center">

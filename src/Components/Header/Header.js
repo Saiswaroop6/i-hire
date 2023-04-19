@@ -56,7 +56,7 @@ export default function Header() {
                   <button
                     className="text-3xl font-bold text-[#0B1547] ml-3"
                     onClick={() => {
-                      Navigate("/");
+                      Navigate("/home");
                     }}
                   >
                     <img src={logoBlue} className="h-10" alt="logo" />
@@ -146,6 +146,9 @@ export default function Header() {
                       <Menu.Item>
                         {({ active }) => (
                           <button
+                            onClick={() => {
+                              Navigate("/");
+                            }}
                             type="button"
                             className={classNames(
                               active ? "bg-gray-100" : "",
