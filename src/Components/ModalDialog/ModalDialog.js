@@ -1,4 +1,4 @@
-import { Dialog, Slide } from "@mui/material";
+import { Dialog} from "@mui/material";
 import React from "react";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 
